@@ -1,12 +1,12 @@
 Summary:	Library for a collision detection between two convex shapes
 Summary(pl.UTF-8):	Biblioteka do wykrywania kolizji między dwoma bryłami wypukłymi
 Name:		libccd
-Version:	1.4
-Release:	0.1
+Version:	1.5
+Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://libccd.danfis.cz/files/%{name}-%{version}.tar.gz
-# Source0-md5:	684a9f2f44567a12a30af383de992a89
+# Source0-md5:	461a8d57a7899074e197a8f0c05ed38e
 Patch0:		%{name}-pc.patch
 URL:		http://libccd.danfis.cz/
 BuildRequires:	cmake >= 2.8
