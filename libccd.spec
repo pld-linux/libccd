@@ -52,7 +52,7 @@ Statyczna biblioteka %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 # autotools build system doesn't install .pc file, use cmake instead
