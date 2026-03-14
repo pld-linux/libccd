@@ -1,14 +1,13 @@
 Summary:	Library for a collision detection between two convex shapes
 Summary(pl.UTF-8):	Biblioteka do wykrywania kolizji między dwoma bryłami wypukłymi
 Name:		libccd
-Version:	1.5
+Version:	2.1
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://libccd.danfis.cz/files/%{name}-%{version}.tar.gz
-# Source0-md5:	461a8d57a7899074e197a8f0c05ed38e
-Patch0:		%{name}-pc.patch
-URL:		http://libccd.danfis.cz/
+Source0:	https://github.com/danfis/libccd/archive/refs/tags/v%{version}.tar.gz
+# Source0-md5:	fe8ea5024956044a3af6bcbab312950f
+URL:		https://github.com/danfis/libccd
 BuildRequires:	cmake >= 2.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,21 +37,8 @@ Header files for %{name} library.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki %{name}.
 
-%package static
-Summary:	Static %{name} library
-Summary(pl.UTF-8):	Statyczna biblioteka %{name}
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-
-%description static
-Static %{name} library.
-
-%description static -l pl.UTF-8
-Statyczna biblioteka %{name}.
-
 %prep
 %setup -q
-%patch -P0 -p1
 
 %build
 # autotools build system doesn't install .pc file, use cmake instead
@@ -65,6 +51,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} -rf $RPM_BUILD_ROOT%{_docdir}/ccd
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -73,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc BSD-LICENSE README doc/jgt98convex.pdf
+%doc BSD-LICENSE README.md
 %attr(755,root,root) %{_libdir}/libccd.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libccd.so.2
 
@@ -82,7 +70,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libccd.so
 %{_includedir}/ccd
 %{_pkgconfigdir}/ccd.pc
-
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/libccd.a
+%{_libdir}/ccd
