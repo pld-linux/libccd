@@ -1,0 +1,22 @@
+--- libccd-2.1/doc/CMakeLists.txt.orig	2018-12-22 13:13:45.000000000 +0100
++++ libccd-2.1/doc/CMakeLists.txt	2026-03-15 09:13:37.374788503 +0100
+@@ -30,7 +30,7 @@ if(NOT WIN32)
+   add_dependencies(doc man)
+ 
+   install(DIRECTORY "${CCD_MAN_OUTPUT_DIR}/"
+-    DESTINATION "${CMAKE_INSTALL_MANDIR}/man1")
++    DESTINATION "${CMAKE_INSTALL_MANDIR}/man3")
+ 
+   list(APPEND CCD_DOC_ADDITIONAL_MAKE_CLEAN_FILES "${CCD_MAN_OUTPUT_DIR}")
+ endif()
+--- libccd-2.1/doc/conf.py.orig	2018-12-22 13:13:45.000000000 +0100
++++ libccd-2.1/doc/conf.py	2026-03-15 09:13:45.368078533 +0100
+@@ -302,7 +302,7 @@ latex_documents = [
+ # (source start file, name, description, authors, manual section).
+ man_pages = [
+     (master_doc, 'libccd', u'libccd Documentation',
+-     [author], 1)
++     [author], 3)
+ ]
+ 
+ # If true, show URL addresses after external links.
