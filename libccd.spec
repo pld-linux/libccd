@@ -6,7 +6,7 @@ Summary:	Library for a collision detection between two convex shapes
 Summary(pl.UTF-8):	Biblioteka do wykrywania kolizji między dwoma bryłami wypukłymi
 Name:		libccd
 Version:	2.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/danfis/libccd/tags
